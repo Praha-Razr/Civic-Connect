@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>User Dashboard</title>
+  <style>
+    body { font-family: sans-serif; padding: 2rem; background: #f8fafc; }
+    .nav { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #e2e8f0; padding-bottom: 1rem; margin-bottom: 2rem; }
+    h2 { margin: 0; color: #1e293b; }
+    .welcome-text { font-size: 1.2rem; color: #475569; }
+    button { padding: 0.6rem 1.2rem; border-radius: 0.5rem; border: none; background: #ef4444; color: white; font-weight: bold; cursor: pointer; }
+    .portal-link { display: inline-block; margin-top: 2rem; padding: 1rem 2rem; background: #2563eb; color: white; text-decoration: none; border-radius: 1rem; font-weight: 800; box-shadow: 0 10px 15px -3px rgba(37,99,235,0.3); }
+  </style>
+</head>
+<body>
+
+<div class="nav">
+  <h2>Citizen Dashboard</h2>
+  <button onclick="logout()">Logout</button>
+</div>
+
+<p id="welcome" class="welcome-text"></p>
+
+<div style="background: white; padding: 2rem; border-radius: 1.5rem; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1); margin-top: 2rem;">
+  <h3>Reporting Center</h3>
+  <p>Ready to help your city? You can now access the full reporting system.</p>
+  <!-- Link back to the main React SPA if they want the advanced features -->
+  <a href="index.html#/" class="portal-link">Open Reporting App</a>
+</div>
+
+<script>
+const user = localStorage.getItem("loggedInUser");
+
+if (!user) {
+  window.location.href = "user-login.html";
+}
+
+document.getElementById("welcome").innerText =
+  "Welcome back, " + user + "! You are now in the Citizen Portal.";
+
+function logout() {
+  localStorage.removeItem("loggedInUser");
+  window.location.href = "index.html";
+}
+</script>
+
+</body>
+</html>

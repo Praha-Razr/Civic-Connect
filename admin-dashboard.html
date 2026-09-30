@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Admin Dashboard</title>
+  <style>
+    body { font-family: sans-serif; padding: 2rem; background: #0f172a; color: white; }
+    .nav { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #334155; padding-bottom: 1rem; margin-bottom: 2rem; }
+    h2 { margin: 0; color: #38bdf8; }
+    button { padding: 0.6rem 1.2rem; border-radius: 0.5rem; border: none; background: #ef4444; color: white; font-weight: bold; cursor: pointer; }
+    .portal-link { display: inline-block; margin-top: 2rem; padding: 1rem 2rem; background: #38bdf8; color: #0f172a; text-decoration: none; border-radius: 1rem; font-weight: 800; }
+  </style>
+</head>
+<body>
+
+<div class="nav">
+  <h2>Authority Command Center</h2>
+  <button onclick="logout()">Logout</button>
+</div>
+
+<div style="background: #1e293b; padding: 2rem; border-radius: 1.5rem; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.3);">
+  <p>Welcome, Administrator. System is online.</p>
+  <h3>Command Console</h3>
+  <p>Access the municipal oversight dashboard to manage public grievances.</p>
+  <a href="index.html#/admin" class="portal-link">Open Management Console</a>
+</div>
+
+<script>
+if (localStorage.getItem("adminLoggedIn") !== "yes") {
+  window.location.href = "admin-login.html";
+}
+
+function logout() {
+  localStorage.removeItem("adminLoggedIn");
+  window.location.href = "index.html";
+}
+</script>
+
+</body>
+</html>

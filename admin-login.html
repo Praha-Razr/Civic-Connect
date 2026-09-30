@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Admin Login</title>
+  <style>
+    body { font-family: sans-serif; display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 100vh; background: #0f172a; color: white; margin: 0; }
+    .card { background: #1e293b; padding: 2.5rem; border-radius: 1.5rem; width: 320px; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.5); }
+    h2 { margin-top: 0; font-weight: 800; text-align: center; }
+    input { width: 100%; padding: 0.8rem; margin-bottom: 1rem; border-radius: 0.5rem; border: none; box-sizing: border-box; background: #334155; color: white; }
+    button { width: 100%; padding: 0.8rem; border-radius: 0.5rem; border: none; background: #2563eb; color: white; font-weight: bold; cursor: pointer; }
+    button:hover { background: #3b82f6; }
+    .back { display: block; text-align: center; margin-top: 1rem; color: #94a3b8; text-decoration: none; font-size: 0.8rem; }
+  </style>
+</head>
+<body>
+
+<div class="card">
+  <h2>Admin Login</h2>
+
+  <input id="adminEmail" type="email" placeholder="Admin Email"><br>
+  <input id="adminPassword" type="password" placeholder="Password"><br>
+
+  <button onclick="adminLogin()">Login</button>
+  <a href="index.html" class="back">← Back to Selection</a>
+</div>
+
+<script>
+function adminLogin() {
+  const email = document.getElementById("adminEmail").value.trim();
+  const password = document.getElementById("adminPassword").value.trim();
+
+  // EXACT CREDENTIALS REQUESTED
+  if (email === "admin@civic.gov" && password === "admin123") {
+    localStorage.setItem("adminLoggedIn", "yes");
+    window.location.href = "admin-dashboard.html";
+  } else {
+    alert("❌ Wrong admin email or password. Hint: admin@civic.gov / admin123");
+  }
+}
+</script>
+
+</body>
+</html>
